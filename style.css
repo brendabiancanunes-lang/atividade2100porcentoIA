@@ -1,0 +1,121 @@
+:root {
+    --cor-preto: #111111;
+    --cor-branco: #ffffff;
+    --cor-vermelho: #cc0000;
+    --cor-cinza: #f4f4f4;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-cinza);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: var(--cor-preto);
+    border-bottom: 4px solid var(--cor-vermelho);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.flashcard {
+    perspective: 1000px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.card-front {
+    background-color: var(--cor-preto);
+    color: var(--cor-branco);
+    border: 3px solid var(--cor-vermelho);
+}
+
+.card-front h2 {
+    font-size: 1.15rem;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+.card-front .hint {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.card-back {
+    background-color: var(--cor-branco);
+    color: var(--cor-preto);
+    transform: rotateY(180deg);
+    border: 3px solid var(--cor-preto);
+}
+
+.status {
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.status.verdade {
+    color: var(--cor-vermelho);
+}
+
+.status.mito {
+    color: var(--cor-preto);
+    text-decoration: line-through;
+    text-decoration-color: var(--cor-vermelho);
+}
+
+.card-back p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+}
